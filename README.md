@@ -2,11 +2,9 @@
 # ECE231_Assignment7
 Working with class
 # Lab Assignment 7
-In this lab we will use C++ to make a class for managing Electric and Magnetic Fields.  
-
 # Class Definition
 Make two classes managing a three-dimensional electric field and a three-dimensional magnetic field.  The classes will contain a single variable for the electric field and magnetic field that is a dynamically allocated array.
-
+TEST
 ```
 class Electric_Field
 {
