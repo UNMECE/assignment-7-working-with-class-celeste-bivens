@@ -68,6 +68,7 @@ class Electric_Field
         ~Electric_Field()//destructor
         {
             delete [] E;
+            double *E = nullptr;
             std::cout << "Destructor called" << std::endl;
         }
 };
@@ -157,7 +158,6 @@ class Magnetic_field
             {
                 unit_vector_y = 0;
             }
-
             return unit_vector_y;
         }
 
@@ -181,13 +181,13 @@ class Magnetic_field
         {
             std::cout << "x: " << get_x() <<std::endl;
             std::cout << "y: " << get_y() <<std::endl;
-            std::cout << "z: " << get_z() <<std::endl;           
-
+            std::cout << "z: " << get_z() <<std::endl;        
         }
 
         ~Magnetic_field()//destructor
         {
             delete [] M;
+            double *M = nullptr;
             std::cout << "Destructor called" << std::endl;
         }
 
@@ -195,8 +195,9 @@ class Magnetic_field
 
 
 int main(){
-    Electric_Field E_default;
-    Electric_Field E_components(1e5, 10.9, 1.7e2);
+    //Electric Field
+    Electric_Field defaultField;//Calling default constructor for the instance, "E_default"
+    Electric_Field E_components(1e5, 10.9, 1.7e2);//Components for electric field passed into Electric field class.
     auto x1 = E_components.get_x();
     auto y1 = E_components.get_y();
     auto z1 = E_components.get_z();
@@ -218,15 +219,13 @@ int main(){
     std::cout << "---------------------------" << std::endl;
     
     //Magnetic field
-    Magnetic_field M_components(1e5, 10.9, 1.7e2);
-
+    Magnetic_field M_components(1e5, 10.9, 1.7e2);//Creating instance, "M_components"
     M_components.print();
     auto unit_vector_x = M_components.calculate_unit_vector_x();
     auto unit_vector_y = M_components.calculate_unit_vector_y();
     auto unit_vector_z = M_components.calculate_unit_vector_z();
 
     std::cout << "Unit vector for magnetic field: (" << unit_vector_x << ", "<< unit_vector_y <<", " << unit_vector_z << ") " << std::endl;
-
     std::cout << "---------------------------" << std::endl;
     
 
